@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\WelcomeMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Models\Member;
+use App\Jobs\SendWelcomeEmail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,11 +33,14 @@ class MemberAuthController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        Member::create([
-            'name'     => $request->name,
-            'email'    => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        $member = Member::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => Hash::make($request->password),
+      ]);
+
+           SendWelcomeEmail::dispatch($member);
+        // Mail::to($member->email)->send(new WelcomeMail($member));
 
         return redirect('/login')->with('success', 'Registration successful! Please login.');
     }

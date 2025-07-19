@@ -35,11 +35,11 @@ return [
     |
     */
 
-    'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
+       'guards' => [
+       'web' => [
+        'driver' => 'session',
+        'provider' => 'members', // <-- this must match the provider key above
+       ],
     ],
 
     /*
@@ -60,10 +60,12 @@ return [
     */
 
     'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\User::class),
-        ],
+    'members' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Member::class,
+    ],
+
+
 
         // 'users' => [
         //     'driver' => 'database',

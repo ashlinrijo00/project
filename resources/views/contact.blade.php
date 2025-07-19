@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title>Contact</title>
     <style>
         body {
             background-color: #121212;
@@ -46,9 +46,9 @@
     </style>
 </head>
 <body>
-    <form action="/register" method="POST">
-        @csrf
-        <h2 style="text-align: center;">Register</h2>
+    <form action="/contact" method="POST">
+    @csrf
+        <h2 style="text-align: center;">Contact</h2>
 
         {{-- Success message --}}
         @if(session('success'))
@@ -66,13 +66,12 @@
             </div>
         @endif
 
-        <input type="text" name="name" placeholder="Name" required />
-        <input type="email" name="email" placeholder="Email" required />
-        <input type="password" name="password" placeholder="Password" required />
+       <input type="text" name="name" required placeholder ="Name">
+    <input type="number" name="age" required placeholder ="Age">
+    <input type="email" name="email" required placeholder ="Email">
+    <input type="text" name="address" required placeholder ="Place">
         
-        <button type="submit">Register</button>
-
-        <!-- <p style="text-align:center;">Already have an account? <a href="/login">Login here</a></p> -->
-    </form>
+       <button type="submit">Submit</button>
+</form>
 </body>
 </html>

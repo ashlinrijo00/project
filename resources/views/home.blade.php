@@ -43,6 +43,12 @@
     <div class="text-center">
         <h1 class="text-4xl font-bold text-yellow-400 mb-4">Welcome, {{ Auth::user()->name }}!</h1>
         <p class="text-lg mb-6">You are logged in.</p>
+        <form method="GET" action="/contact">
+            @csrf
+            <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-6 py-2 rounded-md">
+                Contact
+            </button>
+        </form>
 
         <form method="POST" action="/logout">
             @csrf
