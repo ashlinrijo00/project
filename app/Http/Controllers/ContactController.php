@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Events\ContactForm;
 use Illuminate\Http\Request;
+use App\Traits\LogActivity;
 
 
 class ContactController extends Controller
@@ -31,4 +32,12 @@ class ContactController extends Controller
 
     return back()->with('success', 'Form submitted successfully!');
 }
+
+    use LogActivity;
+
+    public function index()
+    {
+        $this->logSomething("This is from HomeController!");
+        return "Check the log file!";
+    }
 }

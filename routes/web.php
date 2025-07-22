@@ -28,3 +28,4 @@ Route::get('/send-test-mail', function () {
 
 Route::get('/contact', [ContactController::class, 'show']);
 Route::post('/contact', [ContactController::class, 'submit']);
+Route::get('/log-test', [ContactController::class, 'index']);
