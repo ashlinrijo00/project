@@ -1,0 +1,11 @@
+{
+    "name": "HomeUI",
+    "alias": "homeui",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\HomeUI\\Providers\\HomeUIServiceProvider"
+    ],
+    "files": []
+}
